@@ -56,7 +56,7 @@ namespace LiquidTransform.functionapp.v2
         {
             HttpResponseMessage responseMessage = null;
 
-            log.LogInformation("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function received a request.");
 
             if (inputBlob == null)
             {
@@ -85,9 +85,10 @@ namespace LiquidTransform.functionapp.v2
 
             try
             {
-                var json = await req.Content.ReadAsStringAsync();
-                
-                inputHash = Hash.FromDictionary((dynamic)JsonHelper.Deserialize(json));
+                //var json = await req.Content.ReadAsStringAsync();
+                //inputHash = Hash.FromDictionary((dynamic)JsonHelper.Deserialize(json));
+
+                inputHash = await contentReader.ParseRequestAsync(req.Content);
             }
             catch (Exception ex)
             {
@@ -165,6 +166,8 @@ namespace LiquidTransform.functionapp.v2
                     responseMessage.Content = new StringContent(output, Encoding.UTF8, responseContentType);
                 }
             }
+
+            log.LogInformation("C# HTTP trigger function processed a request. Now returning response message.");
 
             return responseMessage;
         }
