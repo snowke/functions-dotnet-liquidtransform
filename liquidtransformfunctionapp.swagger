@@ -36,6 +36,10 @@ paths:
           name: Content-Type
           required: true
           type: string
+        - in: header
+          name: X-CSV-Column-Delimiter
+          required: false
+          type: string            
       responses:
         '200':
           description: Success operation
