@@ -8,7 +8,7 @@ namespace LiquidTransform.functionapp.v2
 {
     public static class ContentFactory
     {
-        public static IContentReader GetContentReader(string contentType)
+        public static IContentReader GetContentReader(string contentType, string csvColumnDelimiter)
         {
             switch (contentType)
             {
@@ -16,7 +16,7 @@ namespace LiquidTransform.functionapp.v2
                 case "text/xml":
                     return new XmlContentReader();
                 case "text/csv":
-                    return new CsvContentReader();
+                    return new CsvContentReader(csvColumnDelimiter);
                 default:
                     return new JsonContentReader();
             }

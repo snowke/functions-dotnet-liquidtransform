@@ -12,6 +12,21 @@ namespace LiquidTransform.functionapp.v2
 {
     public class CsvContentReader : IContentReader
     {
+        private readonly string csvColumnDelimiter;
+
+        /// <summary>
+        ///     Initiate the CvsContextReader with a column delimeter
+        /// </summary>
+        /// <param name="delimiter">If left null or empty will default to comma</param>
+        public CsvContentReader(string csvColumnDelimiter)
+        {
+            if (string.IsNullOrEmpty(csvColumnDelimiter))
+            {
+                csvColumnDelimiter = ",";
+            }
+            this.csvColumnDelimiter = csvColumnDelimiter;
+        }
+
         public async Task<Hash> ParseRequestAsync(HttpContent content)
         {
             var stream = await content.ReadAsStreamAsync();
@@ -26,7 +41,7 @@ namespace LiquidTransform.functionapp.v2
             {
                 var line = await sr.ReadLineAsync();
 
-                csv.Add(line.Split(','));
+                csv.Add(line.Split(csvColumnDelimiter));
             }
 
             transformInput.Add("content", csv.ToArray<object>());

@@ -78,8 +78,12 @@ namespace LiquidTransform.functionapp.v2
                 liquidTransform = await sr.ReadToEndAsync();
             }
 
-            var contentReader = ContentFactory.GetContentReader(requestContentType);
-            var contentWriter = ContentFactory.GetContentWriter(responseContentType);
+            // If available retrieve the CSV file delimiter
+            var headerValues = req.Headers.GetValues("X-CSV-Column-Delimiter");
+            var csvColumnDelimiter = headerValues.FirstOrDefault();
+
+            var contentReader = ContentFactory.GetContentReader(requestContentType, csvColumnDelimiter);
+            var contentWriter = ContentFactory.GetContentWriter(responseContentType);	
 
             Hash inputHash = null;
 
