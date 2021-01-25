@@ -1,0 +1,66 @@
+{%- comment -%} Template to convent from CDC COVID-19 Vaccine Reporting Specifications (CVRS) to HL7 V2 VXUV04
+CRVS Specification: https://www.cdc.gov/vaccines/covid-19/reporting/requirements/specification-instructions.html
+  Excel Document linked in Appendix C, Tab VaxAdmin_CVRS:   https://www.cdc.gov/vaccines/covid-19/reporting/downloads/appendix-C-vaccine-data-requirements.xlsx
+                    https://www.cdc.gov/vaccines/covid-19/downloads/CDC-COVID-19-Vaccination-Reporting-Specification.xlsx
+HL7 v2.5.1 Immunization Implementation Guide: https://www.cdc.gov/vaccines/programs/iis/technical-guidance/hl7.html
+NIST Immunization Test Suite to test VXUV04 output: https://hl7v2-iz-r1.5-testing.nist.gov:8098/iztool/#/home
+{%- endcomment -%}
+{%- for row in content -%}
+	{%- if forloop.first == false -%}
+		{%- if row.size > 15 -%}
+			{%- assign sendingApplication = "GHH" -%}
+			{%- assign sendingFacility = "ELAB-3" -%}
+			{%- assign receivingFacility = "ELAB-3" -%}
+			{%- assign vaccinationEventId = row[0] -%}
+			{%- assign recipientId = row[3] -%}
+			{%- assign recipFirstName = row[4] -%}
+			{%- assign recipMiddleName = row[5] -%}
+			{%- assign recipLastName = row[6] -%}
+			{%- assign recipDob = row[7] | date: 'yyyyMMdd' -%}
+			{%- assign recipSex = row[8] -%}
+			{%- assign recipAddressStreet = row[9] -%}
+			{%- assign recipAddressStreet2 = row[10] -%}
+			{%- assign recipAddressCity = row[11] -%}
+			{%- assign recipAddressCounty = row[12] -%}
+			{%- assign recipAddressState = row[13] -%}
+			{%- assign recipAddressZip = row[14] -%}
+			{%- assign recipRace1 = row[15] -%}
+			{%- assign recipRace2 = row[16] -%}
+			{%- assign recipRace3 = row[17] -%}
+			{%- assign recipRace4 = row[18] -%}
+			{%- assign recipRace5 = row[19] -%}
+			{%- assign recipRace6 = row[20] -%}
+			{%- assign recipEthnicity = row[21] -%}
+			{%- assign administrationDate = row[22] | date: 'yyyyMMdd' -%}
+			{%- assign cvx = row[23] -%}
+			{%- assign ndc = row[24] -%}
+			{%- assign mvx = row[25] -%}
+			{%- assign lotNumber = row[26] -%}
+			{%- assign vaxExpiration = row[27] | date: 'yyyyMMdd' -%}
+			{%- assign vaxAdminSite = row[28] -%}
+			{%- assign vaxRoute = row[29] -%}
+			{%- assign doseNum = row[30] -%}{%- comment -%}They record the dose number but not the dosage????{%- endcomment -%}
+			{%- assign responsibleOrganization = row[32] -%}
+			{%- assign administeredAtLocation = row[33] -%}
+			{%- assign vtrcksProvPin = row[35] -%}
+			{%- assign adminAddressStreet = row[36] -%}
+			{%- assign adminAddressStreet2 = row[37] -%}
+			{%- assign adminAddressCity = row[38] -%}
+			{%- assign adminAddressCounty = row[39] -%}
+			{%- assign adminAddressState = row[40] -%}
+			{%- assign adminAddressZip = row[41] -%}
+			{%- assign vaxRefusal = row[42] -%}
+			{%- assign completionStatus = "CP" -%}
+			{%- if vaxRefusal = "YES" -%}
+				{%- assign completionStatus = "RE" -%}
+			{%- endif -%}
+MSH|^~\&|__REPLACESENDINGAPPLICATION__|__REPLACESENDINGFACILITY__|__REPLACERECEIVINGAPPLICATION__|__REPLACERECEIVINGFACILITY__|{{ "now" | date: 'yyyMMddHHMMss.fffz000'" }}||VXU^V04^VXU_V04|WEBIZ-{{ "now" | date: 'yyyMMddHHMMss.fffz000' }}|P|2.5.1|||ER|AL|||||Z22^CDCPHINVS
+PID|1||{{recipientId}}^^^__REPLACESENDINGFACILITY__^MR||{{recipLastName}}^{{recipMiddleName}}^{{recipFirstName}}^^^^L||{{recipDob}}|{{recipSex}}||{{recipRace1}}^{{recipRace1}}^CDCREC|{{recipAddressStreet}}^{{recipAddressStreet}}^{{recipAddressCity}}^{{recipAddressState}}^{{recipAddressZip}}^USA^L|||||||||||{{recipEthnicity}}^{{recipEthnicity}}^CDCREC
+ORC|RE||{{vaccinationEventId}}^__REPLACESENDINGFACILITY__
+RXA|0|1|{{administrationDate}}||{{cvx}}^{{cvx}}^CVX~{{ndc}}^{{ndc}}^NDC|0.5|mL^MilliLiter [SI Volume Units]^UCUM||00^New immunization record^NIP001||^^^{{administeredAtLocation}}||||{{lotNumber}}|{{vaxExpiration}}|{{mvx}}^{{mvx}}^MVX|||{{completionStatus}}|A
+RXR|{{vaxRoute}}^{{{{vaxRoute}}}}^NCIT|{{vaxAdminSite}}^{{vaxAdminSite}}^HL70163
+OBX|1|CE|64994-7^vaccine fund pgm elig cat^LN|1|V01^Not VFC Eligible^HL70064||||||F|||{{administrationDate}}|||CVX40^per imm^CDCPHINVS
+OBX|1|CE|30963-3^Vaccine purchased with^LN|1|VXC51^Public VFC Funds^CDCPHINVS ||||||F
+		{%- endif -%}
+	{%- endif -%}
+{%- endfor %}

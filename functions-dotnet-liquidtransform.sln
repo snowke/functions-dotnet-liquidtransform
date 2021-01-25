@@ -14,7 +14,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiquidTransform.Extensions"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiquidTransform.functionapp.v2", "LiquidTransform.functionapp.v2\LiquidTransform.functionapp.v2.csproj", "{67CE8F1E-02B5-4857-AD61-E3AF394E5F8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiquidTransform.functionapp.v3", "LiquidTransform.functionapp.v3\LiquidTransform.functionapp.v3.csproj", "{F3D7E8D5-2245-46DB-9BFE-63456D4CA1C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiquidTransform.functionapp.v3", "LiquidTransform.functionapp.v3\LiquidTransform.functionapp.v3.csproj", "{F3D7E8D5-2245-46DB-9BFE-63456D4CA1C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{3FDF54DF-DF56-41CA-98C9-AA260DBA0186}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SampleData", "SampleData", "{3759A457-FC07-4913-ACAC-2503A072259F}"
+	ProjectSection(SolutionItems) = preProject
+		data\SampleData\covid19-crvs.csv = data\SampleData\covid19-crvs.csv
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{F54954CE-C1D0-4409-8149-82321649A92D}"
+	ProjectSection(SolutionItems) = preProject
+		data\Templates\cdc-covid19-crvs-to-hl7v251-vxuv04.liquid = data\Templates\cdc-covid19-crvs-to-hl7v251-vxuv04.liquid
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +53,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3759A457-FC07-4913-ACAC-2503A072259F} = {3FDF54DF-DF56-41CA-98C9-AA260DBA0186}
+		{F54954CE-C1D0-4409-8149-82321649A92D} = {3FDF54DF-DF56-41CA-98C9-AA260DBA0186}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0010B31F-BDF9-44F9-A113-012336AC8FF6}
