@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using DotLiquid;
 using Newtonsoft.Json;
 
-namespace LiquidTransform.functionapp.v2
+namespace LiquidTransform.functionapp.v3
 {
     public class JsonContentReader : IContentReader
     {
