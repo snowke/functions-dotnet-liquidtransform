@@ -8,7 +8,7 @@ using System.Xml.Linq;
 using DotLiquid;
 using Newtonsoft.Json;
 
-namespace LiquidTransform.functionapp.v2
+namespace LiquidTransform.functionapp.v3
 {
     public class XmlContentReader : IContentReader
     {

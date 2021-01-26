@@ -11,7 +11,7 @@ using Microsoft.Extensions.Logging;
 using DotLiquid;
 using Newtonsoft.Json.Linq;
 
-namespace LiquidTransform.functionapp.v2
+namespace LiquidTransform.functionapp.v3
 {
     public static class JsonHelper
     {
