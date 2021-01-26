@@ -1,6 +1,6 @@
 # functions-dotnet-liquidtransform
 
-An Azure Function (v1 & v2 &v3) executing Liquid transforms using DotLiquid. The following transformation types are supported:
+An Azure Function (v1 & v2 & v3) executing Liquid transforms using DotLiquid. The following transformation types are supported:
 - JSON to JSON
 - JSON to XML
 - JSON to plain text / CSV
@@ -205,3 +205,10 @@ Expose the Swagger definition if you want to consume the API in Logic Apps.  Mor
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Change Log
+
+The following changes have been made in this fork
+- Added HTTP header to override the default field delimiter in a CSV file.  Allows for pipe delimited files, etc.
+- Added basic HL7v2 filters
+- Added sample data and templates to test to two additionals above with.

@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4DEC94DB-7CB2-4FB5-81DF-BA5F705BED8F}"
 	ProjectSection(SolutionItems) = preProject
 		liquidtransformfunctionapp.swagger = liquidtransformfunctionapp.swagger
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiquidTransform.Extensions", "LiquidTransform.Extensions\LiquidTransform.Extensions.csproj", "{12D8FE8A-188F-44EA-8ABC-8788EA420A01}"
@@ -17,10 +18,14 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiquidTransform.functionapp.v3", "LiquidTransform.functionapp.v3\LiquidTransform.functionapp.v3.csproj", "{F3D7E8D5-2245-46DB-9BFE-63456D4CA1C4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{3FDF54DF-DF56-41CA-98C9-AA260DBA0186}"
+	ProjectSection(SolutionItems) = preProject
+		data\README.md = data\README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SampleData", "SampleData", "{3759A457-FC07-4913-ACAC-2503A072259F}"
 	ProjectSection(SolutionItems) = preProject
-		data\SampleData\covid19-crvs.csv = data\SampleData\covid19-crvs.csv
+		data\SampleData\covid19-crvs-10-lines.csv = data\SampleData\covid19-crvs-10-lines.csv
+		data\SampleData\covid19-crvs-10000-lines.csv = data\SampleData\covid19-crvs-10000-lines.csv
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{F54954CE-C1D0-4409-8149-82321649A92D}"

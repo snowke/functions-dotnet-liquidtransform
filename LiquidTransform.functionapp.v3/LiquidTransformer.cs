@@ -104,6 +104,7 @@ namespace LiquidTransform.functionapp.v2
 
             // Register the Liquid custom filter extensions
             Template.RegisterFilter(typeof(CustomFilters));
+            Template.RegisterFilter(typeof(CustomFiltersHl7v2));
 
             // Execute the Liquid transform
             Template template = null;

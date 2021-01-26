@@ -1,5 +1,0 @@
-vax_event_id|ext_type|pprl_id|recip_id|recip_first_name|recip_middle_name|recip_last_name|recip_dob|recip_sex|recip_address_street|recip_address_street_2|recip_address_city|recip_address_county|recip_address_state|recip_address_zip|recip_race_1|recip_race_2|recip_race_3|recip_race_4|recip_race_5|recip_race_6
-vaccEventId1|D||pprlID1|MyFirst1|MyMiddle1|MyLast1|1968-05-27|M|123 Main St|My Second St|Denver|CO|80202|2076-8|2106-3||||
-vaccEventId2|D||pprlID2|MyFirst2|MyMiddle2|MyLast2|1969-06-24|F|234 Main St|My Second St|Denver|CO|80202|2076-8|||||
-vaccEventId3|D||pprlID3|MyFirst3|MyMiddle3|MyLast3|1968-05-27|M|123 Main St|My Second St|Denver|CO|80202|2076-8|2106-3||||
-vaccEventId4|D||pprlID4|MyFirst4|MyMiddle4|MyLast4|1964-06-24|U|456 Main St|My Second St|Denver|CO|80202|2076-8|||||
